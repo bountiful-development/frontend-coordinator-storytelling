@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+// import FormGroupInput from '../Form/FormGroupInput';
 
 const countries = [
   'Bolivia',
@@ -29,7 +30,8 @@ class RegisterForm extends Component {
     country: '',
     title: '',
     email: '',
-    password: ''
+    password: '',
+    role: 'coordinator'
   };
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });

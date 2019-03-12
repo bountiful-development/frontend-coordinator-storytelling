@@ -24,6 +24,15 @@ No forks will be used in the git repo!
 9. `git push` it!
 10. **On github,** make a pull request to be approved by TL or PM.
 
+### Mission Statement
+Bountiful Children's Foundation connects people across the globe through the power of human stories.
+
+#### What problem does Coordinator Storytelling solve?
+The Coordinator Storytelling App is place for Coordinators of the Bountiful Children’s Foundation to add and share success stories in one place rather than getting lost through other means like through email, facebook messages, etc.
+
+#### How does Coordinator Storytelling solve the problem?
+The app gives coordinators the ability to write, edit, and delete new success stories that can be publicly viewed on the app. It also gives the public (donors) the ability do donate to specific projects.
+
 **Pitch:** The Bountiful Children's Foundation needs a way to collect success stories from 15 different countries, rather than losing them through email, facebook messages, etc.
 
 ### MVP Feature Breakdown: 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Navigation from '../components/Navigation/Navigation';
 import styled from 'styled-components';
-import brazil from '../img/brazil.svg';
 import Icon from '../utilities/Icon';
 
 class DonorHomeView extends Component {

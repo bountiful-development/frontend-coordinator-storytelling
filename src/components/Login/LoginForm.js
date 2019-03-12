@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import logo from '../../img/logo.svg';
+import { Form, Redirect, SubmitButton } from '../Form/Form';
 
 class RegisterForm extends Component {
   state = {
@@ -12,10 +15,13 @@ class RegisterForm extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <form>
-        <h1>
-          Login <span>As A Coordinator</span>
-        </h1>
+      <Form>
+        <LoginHeading>
+          <img src={logo} alt="logo" />
+          <span className="text">
+            Log In <span>As A Coordinator</span>
+          </span>
+        </LoginHeading>
         <div className="form-group">
           <label htmlFor="name">Email:</label>
           <input
@@ -38,14 +44,39 @@ class RegisterForm extends Component {
             required
           />
         </div>
-        <button type="submit">Log In</button>
-        <div>
+        <SubmitButton type="submit">Log In</SubmitButton>
+        <Redirect>
           <span>Not registered?</span>
           <Link to="/register">Sign Up</Link>
-        </div>
-      </form>
+        </Redirect>
+      </Form>
     );
   }
 }
+
+const LoginHeading = styled.h1`
+  text-transform: uppercase;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 68px;
+    height: 68px;
+    /* margin-right: 2px; */
+  }
+  .text {
+    font-size: 4.3rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    span {
+      font-size: 1.5rem;
+      font-weight: 400;
+      /* width: 100%; */
+    }
+  }
+`;
 
 export default RegisterForm;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navigation from '../components/Navigation/Navigation';
 import styled from 'styled-components';
 import brazil from '../img/brazil.svg';
+import Icon from '../utilities/Icon';
 
 class DonorHomeView extends Component {
   state = {};
@@ -14,7 +15,7 @@ class DonorHomeView extends Component {
           <CardContainer>
             <Card>
               <h3>A new thing to say</h3>
-              <img src={brazil} alt="brazil" />
+              <Icon name="brazil" />
               <p>
                 Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
               </p>
@@ -25,7 +26,7 @@ class DonorHomeView extends Component {
             </Card>
             <Card>
               <h3>Water is flowing</h3>
-              <img src={brazil} alt="brazil" />
+              <Icon name="bolivia" />
               <p>
                 Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
               </p>
@@ -36,7 +37,183 @@ class DonorHomeView extends Component {
             </Card>
             <Card>
               <h3>New Orphanage</h3>
-              <img src={brazil} alt="brazil" />
+              <Icon name="cambodia" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="colombia" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="ecuador" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="el salvador" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="ghana" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="guatemala" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="haiti" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="honduras" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="madagascar" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="mongolia" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="nicaragua" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="paraguay" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="peru" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="philippines" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="sierra leone" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="zimbabwe" />
+              <p>
+                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
+              </p>
+              <div className="card-footer">
+                <p>by: Caren</p>
+                <ViewButton>View</ViewButton>
+              </div>
+            </Card>
+            <Card>
+              <h3>New Orphanage</h3>
+              <Icon name="kiribati" />
               <p>
                 Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
               </p>
@@ -84,7 +261,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2rem 4rem;
-  margin-bottom: 3rem;
+  margin-bottom: 6rem;
   background: linear-gradient(
     to top,
     #85ffc7 0%,
@@ -114,6 +291,9 @@ const Card = styled.div`
   p {
     margin-bottom: 3rem;
     /* font-weight: 700; */
+  }
+  svg {
+    align-self: center;
   }
   .card-footer {
     display: flex;

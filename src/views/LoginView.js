@@ -28,7 +28,7 @@ const StyledLoginView = styled.div`
     #ed9728 50%,
     white 50%,
     white 100%
-  ); /* W3C */
+  );
 `;
 
 const Container = styled.div`

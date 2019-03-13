@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { withRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { registerUser, loginUser } from './actions';
 import CoordinatorHomeView from './views/CoordinatorHomeView';
@@ -11,16 +11,23 @@ import StoryView from './views/StoryView';
 import RegisterView from './views/RegisterView';
 
 class App extends Component {
+
+  componentDidUpdate(prevProps){
+    if(prevProps.token !== this.props.token){
+      localStorage.setItem('token', this.props.token)
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <Switch>
           <Route exact path="/" component={DonorHomeView} />
           <Route exact path="/register" render={props => (
-            <RegisterView registerUser={this.props.registerUser} />
+            <RegisterView {...props} registerUser={this.props.registerUser} />
           )} />
           <Route exact path="/login" render={props => (
-            <LoginView loginUser={this.props.loginUser} />
+            <LoginView {...props} loginUser={this.props.loginUser} />
           )} />
           <Route exact path="/:id" component={StoryView} />
           <Route
@@ -51,6 +58,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, 
+export default withRouter(connect(mapStateToProps, 
                             { registerUser,
-                              loginUser })(App);
+                              loginUser })(App));

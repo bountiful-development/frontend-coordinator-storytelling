@@ -3,6 +3,22 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../img/logo.svg';
 
+const NavCheck = () => {
+  if(localStorage.getItem('token')){
+    return (
+      <LoginNav>
+        LOGGED IN
+      </LoginNav>
+    )
+  } else {
+    return (
+      <LoginNav>
+        <Link to="/login">Login</Link> | <Link to="/register">Sign Up</Link>
+      </LoginNav>
+    )
+  }
+}
+
 const Navigation = () => {
   return (
     <AppHeader>
@@ -11,9 +27,7 @@ const Navigation = () => {
           <img src={logo} alt="logo" />
           Coordinator <span>Storytelling</span>
         </AppHeading>
-        <LoginNav>
-          <Link to="/login">Login</Link> | <Link to="/register">Sign Up</Link>
-        </LoginNav>
+        {NavCheck()}
       </Container>
     </AppHeader>
   );

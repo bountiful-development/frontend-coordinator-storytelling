@@ -56,7 +56,7 @@ export const SubmitButton = styled.button`
   }
 `;
 
-export const Redirect = styled.div`
+export const RedirectA = styled.div`
   font-size: 1.4rem;
   text-align: center;
   a {

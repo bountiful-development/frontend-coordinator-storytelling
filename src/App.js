@@ -43,7 +43,11 @@ class App extends Component {
             exact
             path="/login"
             render={props => (
-              <LoginView {...props} loginUser={this.props.loginUser} />
+              <LoginView
+                {...props}
+                isLogginIn={this.props.isLogginIn}
+                loginUser={this.props.loginUser}
+              />
             )}
           />
           <Route exact path="/:id" component={StoryView} />
@@ -71,7 +75,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     token: state.auth.token,
-    stories: state.story.stories
+    stories: state.story.stories,
+    isLogginIn: state.auth.isLogginIn
   };
 };
 

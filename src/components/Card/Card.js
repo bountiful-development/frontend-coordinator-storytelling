@@ -1,22 +1,13 @@
-import React from 'react';
 import styled from 'styled-components';
-import Icon from '../../utilities/Icon';
 
-const Card = ({ title, excerpt, author, country }) => {
-  return (
-    <StyledCard>
-      <h3>{title}</h3>
-      <Icon name={country} />
-      <p>{excerpt}</p>
-      <div className="card-footer">
-        <p>by: {author}</p>
-        <ViewButton>View</ViewButton>
-      </div>
-    </StyledCard>
-  );
-};
+export const CardContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+`;
 
-const StyledCard = styled.div`
+export const Card = styled.div`
   width: 26%;
   overflow: hidden;
   /* background: #fff; */
@@ -67,7 +58,7 @@ const StyledCard = styled.div`
   }
 `;
 
-const ViewButton = styled.button`
+export const ViewButton = styled.button`
   background: #39393a;
   font-size: inherit;
   padding: 1rem 1.5rem;

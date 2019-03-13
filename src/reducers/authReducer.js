@@ -23,7 +23,8 @@ export const authReducer = (state = initalState, action) => {
     case USER_REGISTERED:
       return{
         ...state,
-        error: ''
+        error: '',
+        isRegistering: false
       }
     case LOGIN_USER:
       return{
@@ -35,7 +36,8 @@ export const authReducer = (state = initalState, action) => {
       return{
         ...state,
         error: '',
-        token: action.payload.token
+        token: action.payload.token,
+        isLogginIn: false
       }
     default:
       return state;

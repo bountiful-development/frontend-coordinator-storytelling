@@ -34,3 +34,12 @@ export const loginUser = user => dispatch => {
     })
     .catch(err => console.log(err));
 };
+
+export const getStories = () => dispatch => {
+  dispatch({ type: GET_STORIES });
+  Axios.get('https://coordinator-storytelling-api.herokuapp.com/api/stories/')
+    .then(res => {
+      dispatch({ type: GET_STORIES_SUCCESS, payload: res.data });
+    })
+    .catch(err => console.log(err));
+};

@@ -4,14 +4,17 @@ import DonorCards from '../components/Card/DonorCards';
 import Navigation from '../components/Navigation/Navigation';
 
 class DonorHomeView extends Component {
-  state = {};
+  state = { stories: [] };
+  componentDidMount() {
+    this.props.getStories();
+  }
   render() {
     return (
       <StyledDonorHomeView>
         <Navigation />
         <Container>
           <PageHeading>Our Stories</PageHeading>
-          <DonorCards />
+          <DonorCards stories={this.props.stories} />
         </Container>
       </StyledDonorHomeView>
     );

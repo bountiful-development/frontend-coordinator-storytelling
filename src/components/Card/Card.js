@@ -42,6 +42,12 @@ export const Card = styled.div`
     text-align: center;
     margin-bottom: 1rem;
   }
+  h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
   p {
     margin-bottom: 3rem;
     /* font-weight: 700; */

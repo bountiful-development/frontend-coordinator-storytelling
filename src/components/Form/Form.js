@@ -15,6 +15,7 @@ export const Form = styled.form`
       font-weight: 700;
     }
     input,
+    textarea,
     select {
       background: #fafafa;
       border-radius: 5px;

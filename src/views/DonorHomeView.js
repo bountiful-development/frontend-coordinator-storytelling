@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Navigation from '../components/Navigation/Navigation';
 import styled from 'styled-components';
-import Icon from '../utilities/Icon';
+import Card from '../components/Card/Card';
+import Navigation from '../components/Navigation/Navigation';
 
 class DonorHomeView extends Component {
   state = {};
@@ -12,215 +12,158 @@ class DonorHomeView extends Component {
         <Container>
           <PageHeading>Our Stories</PageHeading>
           <CardContainer>
-            <Card>
-              <h3>A new thing to say</h3>
-              <Icon name="brazil" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Gary</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>Water is flowing</h3>
-              <Icon name="bolivia" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Larry</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="cambodia" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="colombia" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="ecuador" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="el salvador" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="ghana" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="guatemala" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="haiti" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="honduras" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="madagascar" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="mongolia" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="nicaragua" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="paraguay" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="peru" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="philippines" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="sierra leone" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="zimbabwe" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
-            <Card>
-              <h3>New Orphanage</h3>
-              <Icon name="kiribati" />
-              <p>
-                Spicy jalapeno bacon ipsum dolor amet ground round And around...{' '}
-              </p>
-              <div className="card-footer">
-                <p>by: Caren</p>
-                <ViewButton>View</ViewButton>
-              </div>
-            </Card>
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="brazil"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="bolivia"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="cambodia"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="colombia"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="ecuador"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="el salvador"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="ghana"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="guatemala"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="haiti"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="honduras"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="madagascar"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="mongolia"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="nicaragua"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="paraguay"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="peru"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="philippines"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="sierra leone"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="zimbabwe"
+            />
+            <Card
+              title="Well Well Well ok"
+              excerpt={
+                'Spicy jalapeno bacon ipsum dolor amet ground round And around...'
+              }
+              author="Doug"
+              country="kiribati"
+            />
           </CardContainer>
         </Container>
       </StyledDonorHomeView>
@@ -250,77 +193,6 @@ const CardContainer = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
-`;
-
-const Card = styled.div`
-  width: 26%;
-  overflow: hidden;
-  /* background: #fff; */
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 4rem;
-  margin-bottom: 6rem;
-  background: linear-gradient(
-    to top,
-    #85ffc7 0%,
-    #85ffc7 60%,
-    #85ffc7 60%,
-    white 60%,
-    white 100%
-  );
-
-  &:nth-child(even) {
-    background: linear-gradient(
-      to top,
-      #ed9728 0%,
-      #ed9728 60%,
-      #ed9728 60%,
-      white 60%,
-      white 100%
-    );
-  }
-  h3 {
-    font-size: 2.4rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  p {
-    margin-bottom: 3rem;
-    /* font-weight: 700; */
-  }
-  svg {
-    align-self: center;
-  }
-  .card-footer {
-    display: flex;
-    align-items: center;
-    p {
-      margin-bottom: 0;
-    }
-  }
-`;
-
-const ViewButton = styled.button`
-  background: #39393a;
-  font-size: inherit;
-  padding: 1rem 1.5rem;
-  display: flex;
-  text-transform: uppercase;
-  font-family: inherit;
-  color: #fff;
-  font-weight: 700;
-  border: transparent;
-  border-radius: 5px;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
-  margin-left: auto;
-  cursor: pointer;
-  transition: all 0.2s;
-  &:hover {
-    background: #edaf5f;
-  }
 `;
 
 export default DonorHomeView;

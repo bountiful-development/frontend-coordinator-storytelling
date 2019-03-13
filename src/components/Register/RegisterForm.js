@@ -39,10 +39,35 @@ class RegisterForm extends Component {
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
+  handleRegister(e) {
+    e.preventDefault();
+    let newUser = {
+      username: this.state.name,
+      country: this.state.country,
+      title: this.state.title,
+      email: this.state.email,
+      password: this.state.password,
+      role: this.state.role
+    }
+    if(newUser.country === ''){
+      newUser.country = 'Bolivia';
+    }
+    console.log(newUser);
+    this.props.registerUser(newUser);
+    this.setState({
+      name: '',
+      country: '',
+      title: '',
+      email: '',
+      password: '',
+      role: 'coordinator'
+    })
+  }
+
   render() {
     const { name, country, title, email, password } = this.state;
     return (
-      <Form>
+      <Form onSubmit={e => this.handleRegister(e)}>
         <RegisterHeading>
           <img src={logo} alt="logo" />
           <span className="text">

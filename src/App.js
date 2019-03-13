@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { registerUser, loginUser } from './actions';
 import CoordinatorHomeView from './views/CoordinatorHomeView';
 import CreateStoryView from './views/CreateStoryView';
 import DonorHomeView from './views/DonorHomeView';
@@ -14,8 +16,12 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path="/" component={DonorHomeView} />
-          <Route exact path="/register" component={RegisterView} />
-          <Route exact path="/login" component={LoginView} />
+          <Route exact path="/register" render={props => (
+            <RegisterView registerUser={this.props.registerUser} />
+          )} />
+          <Route exact path="/login" render={props => (
+            <LoginView loginUser={this.props.loginUser} />
+          )} />
           <Route exact path="/:id" component={StoryView} />
           <Route
             exact
@@ -38,4 +44,13 @@ class App extends Component {
   }
 }
 
-export default App;
+
+const mapStateToProps = state => {
+  return {
+    token: state.auth.token
+  };
+};
+
+export default connect(mapStateToProps, 
+                            { registerUser,
+                              loginUser })(App);

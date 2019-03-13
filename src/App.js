@@ -27,7 +27,7 @@ class App extends Component {
             <RegisterView {...props} registerUser={this.props.registerUser} />
           )} />
           <Route exact path="/login" render={props => (
-            <LoginView {...props} loginUser={this.props.loginUser} />
+            <LoginView {...props} isLogginIn={this.props.isLogginIn} loginUser={this.props.loginUser} />
           )} />
           <Route exact path="/:id" component={StoryView} />
           <Route
@@ -54,7 +54,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    token: state.auth.token
+    token: state.auth.token,
+    isLogginIn: state.auth.isLogginIn
   };
 };
 

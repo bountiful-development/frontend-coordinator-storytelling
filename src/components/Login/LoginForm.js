@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../img/logo.svg';
-import { Form, Redirect, SubmitButton } from '../Form/Form';
+import { Form, RedirectA, SubmitButton } from '../Form/Form';
 
 class RegisterForm extends Component {
   state = {
     email: '',
     password: ''
   };
+
+  componentDidUpdate(){
+    const token = localStorage.getItem('token');
+    if(token){
+      {console.log('RUN')}
+      return (
+        this.props.history.push('/')
+      )
+    }
+  }
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
@@ -59,10 +69,13 @@ class RegisterForm extends Component {
           />
         </div>
         <SubmitButton type="submit">Log In</SubmitButton>
-        <Redirect>
+        <div>
+          {(this.props.isLogginIn ? <p>Logging in...</p> : <p></p>)}
+        </div>
+        <RedirectA>
           <span>Not registered?</span>
           <Link to="/register">Sign Up</Link>
-        </Redirect>
+        </RedirectA>
       </Form>
     );
   }
@@ -93,4 +106,4 @@ const LoginHeading = styled.h1`
   }
 `;
 
-export default RegisterForm;
+export default withRouter(RegisterForm);

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../img/logo.svg';
-import { Form, Redirect, SubmitButton } from '../Form/Form';
+import { Form, RedirectA, SubmitButton } from '../Form/Form';
 // import FormGroupInput from '../Form/FormGroupInput';
 
 const countries = [
@@ -37,6 +37,16 @@ class RegisterForm extends Component {
     role: 'coordinator'
   };
 
+  componentDidUpdate(){
+    const token = localStorage.getItem('token');
+    if(token){
+      {console.log('RUN')}
+      return (
+        this.props.history.push('/')
+      )
+    }
+  }
+
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleRegister(e) {
@@ -54,6 +64,11 @@ class RegisterForm extends Component {
     }
     console.log(newUser);
     this.props.registerUser(newUser);
+    let user = {
+      email: this.state.email,
+      password: this.state.password
+    }
+    this.props.loginUser(user);
     this.setState({
       name: '',
       country: '',
@@ -134,10 +149,10 @@ class RegisterForm extends Component {
           />
         </div>
         <SubmitButton type="submit">Sign Up</SubmitButton>
-        <Redirect>
+        <RedirectA>
           <span>Already signed up?</span>
           <Link to="/login">Login</Link>
-        </Redirect>
+        </RedirectA>
       </Form>
     );
   }
@@ -168,4 +183,4 @@ const RegisterHeading = styled.h1`
   }
 `;
 
-export default RegisterForm;
+export default withRouter(RegisterForm);

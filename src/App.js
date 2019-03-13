@@ -14,6 +14,7 @@ class App extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.token !== this.props.token) {
       localStorage.setItem('token', this.props.token);
+      this.props.history.push('/')
     }
   }
 
@@ -36,7 +37,8 @@ class App extends Component {
             exact
             path="/register"
             render={props => (
-              <RegisterView {...props} registerUser={this.props.registerUser} />
+              <RegisterView {...props} registerUser={this.props.registerUser}
+                                       isRegistering={this.props.isRegistering} />
             )}
           />
           <Route
@@ -76,7 +78,8 @@ const mapStateToProps = state => {
   return {
     token: state.auth.token,
     stories: state.story.stories,
-    isLogginIn: state.auth.isLogginIn
+    isLogginIn: state.auth.isLogginIn,
+    isRegistering: state.auth.isRegistering
   };
 };
 

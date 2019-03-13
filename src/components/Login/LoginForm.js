@@ -12,10 +12,24 @@ class RegisterForm extends Component {
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
+  handleLogin(e) {
+    e.preventDefault();
+    let user = {
+      email: this.state.email,
+      password: this.state.password
+    }
+    console.log(user);
+    this.props.loginUser(user);
+    this.setState({
+      email: '',
+      password: ''
+    })
+  }
+
   render() {
     const { email, password } = this.state;
     return (
-      <Form>
+      <Form onSubmit={e => this.handleLogin(e)}>
         <LoginHeading>
           <img src={logo} alt="logo" />
           <span className="text">

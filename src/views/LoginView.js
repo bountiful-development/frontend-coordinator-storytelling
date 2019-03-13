@@ -11,7 +11,7 @@ class LoginView extends Component {
           <Link to="/" className="home-link">
             <h1>Donor Homepage</h1>
           </Link>
-          <LoginForm />
+          <LoginForm loginUser={this.props.loginUser} />
         </Container>
       </StyledLoginView>
     );

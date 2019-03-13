@@ -9,17 +9,17 @@ export const registerUser = (newUser) => dispatch => {
     console.log("Registering");
     dispatch({ type: REGISTER_USER });
     Axios
-        .post('https://coordinator-storytelling-api.herokuapp.com/api/register', newUser)
+        .post('https://coordinator-storytelling-api.herokuapp.com/api/register/', newUser)
         .then(res => {
             dispatch({ type: USER_REGISTERED, payload: res.data })
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log(err.response));
 }
 
 export const loginUser = (user) => dispatch => {
     dispatch({ type: LOGIN_USER });
     Axios
-        .post('https://coordinator-storytelling-api.herokuapp.com/api/register', user)
+        .post('https://coordinator-storytelling-api.herokuapp.com/api/login/', user)
         .then(res => {
             dispatch({ type: USER_LOGIN, payload: res.data })
         })

@@ -18,7 +18,7 @@ export const authReducer = (state = initalState, action) => {
       return{
         ...state,
         error: '',
-        isRegistering: ''
+        isRegistering: true
       }
     case USER_REGISTERED:
       return{

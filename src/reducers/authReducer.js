@@ -35,7 +35,7 @@ export const authReducer = (state = initalState, action) => {
       return{
         ...state,
         error: '',
-        token: action.payload
+        token: action.payload.token
       }
     default:
       return state;

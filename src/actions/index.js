@@ -5,23 +5,32 @@ export const USER_REGISTERED = 'USER_REGISTERED';
 export const LOGIN_USER = 'LOGIN_USER';
 export const USER_LOGIN = 'USER_LOGIN';
 
-export const registerUser = (newUser) => dispatch => {
-    console.log("Registering");
-    dispatch({ type: REGISTER_USER });
-    Axios
-        .post('https://coordinator-storytelling-api.herokuapp.com/api/register/', newUser)
-        .then(res => {
-            dispatch({ type: USER_REGISTERED, payload: res.data })
-        })
-        .catch(err => console.log(err.response));
-}
+// Stories
+export const GET_STORIES = 'GET_STORIES';
+export const GET_STORIES_SUCCESS = 'GET_STORIES_SUCCESS';
+export const GET_STORIES_FAILURE = 'GET_STORIES_FAILURE';
 
-export const loginUser = (user) => dispatch => {
-    dispatch({ type: LOGIN_USER });
-    Axios
-        .post('https://coordinator-storytelling-api.herokuapp.com/api/login/', user)
-        .then(res => {
-            dispatch({ type: USER_LOGIN, payload: res.data })
-        })
-        .catch(err => console.log(err));
-}
+export const registerUser = newUser => dispatch => {
+  console.log('Registering');
+  dispatch({ type: REGISTER_USER });
+  Axios.post(
+    'https://coordinator-storytelling-api.herokuapp.com/api/register/',
+    newUser
+  )
+    .then(res => {
+      dispatch({ type: USER_REGISTERED, payload: res.data });
+    })
+    .catch(err => console.log(err.response));
+};
+
+export const loginUser = user => dispatch => {
+  dispatch({ type: LOGIN_USER });
+  Axios.post(
+    'https://coordinator-storytelling-api.herokuapp.com/api/login/',
+    user
+  )
+    .then(res => {
+      dispatch({ type: USER_LOGIN, payload: res.data });
+    })
+    .catch(err => console.log(err));
+};

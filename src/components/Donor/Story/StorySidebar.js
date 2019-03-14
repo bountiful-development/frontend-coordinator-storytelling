@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Card } from '../../Card/Card';
 
-const StorySidebar = () => {
+const StorySidebar = ({ story }) => {
   return (
     <div className="sidebar">
-      <h4>Other Posts about Brazil</h4>
+      <h4>Other Posts about {story.story_country}</h4>
       <div className="card-container">
         <SideBarCard>
           <h3>Title</h3>

@@ -34,13 +34,13 @@ class CountryFilter extends Component {
 
   scrollRight = () => {
     if (this.state.scrollVal > -1000) {
-      this.setState(prevState => ({ scrollVal: prevState.scrollVal - 250 }));
+      this.setState(prevState => ({ scrollVal: prevState.scrollVal - 500 }));
       console.log(this.state.scrollVal);
     }
   };
   scrollLeft = () => {
     if (this.state.scrollVal < 0) {
-      this.setState(prevState => ({ scrollVal: prevState.scrollVal + 250 }));
+      this.setState(prevState => ({ scrollVal: prevState.scrollVal + 500 }));
       console.log(this.state.scrollVal);
     }
   };
@@ -106,10 +106,10 @@ const Container = styled.div`
     cursor: pointer;
   }
   .left-arrow {
-    left: 0;
+    left: 50px;
   }
   .right-arrow {
-    right: 0;
+    right: 50px;
   }
   .scroll-container {
     display: flex;
@@ -126,7 +126,7 @@ const Container = styled.div`
       flex-direction: column;
       align-items: center;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s ease-in-out;
 
       svg {
         height: 100%;

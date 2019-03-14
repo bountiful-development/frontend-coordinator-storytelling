@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginForm from '../components/Login/LoginForm';
+import Icon from '../utilities/Icon';
 
 class LoginView extends Component {
   render() {
@@ -9,9 +10,13 @@ class LoginView extends Component {
       <StyledLoginView>
         <Container>
           <Link to="/" className="home-link">
-            <h1>Donor Homepage</h1>
+            <Icon name="home" />
+            {/* <h2>Donor Homepage</h2> */}
           </Link>
-          <LoginForm loginUser={this.props.loginUser} isLogginIn={this.props.isLogginIn} />
+          <LoginForm
+            loginUser={this.props.loginUser}
+            isLogginIn={this.props.isLogginIn}
+          />
         </Container>
       </StyledLoginView>
     );
@@ -42,8 +47,27 @@ const Container = styled.div`
 
   .home-link {
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 0;
+    display: flex;
+    align-items: center;
+    /* height: 50px; */
+    text-decoration: none;
+    h2 {
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #39393a;
+    }
+    svg {
+      height: 30px;
+      width: 30px;
+      margin-right: 1rem;
+      fill: #39393a;
+      transition: all 0.2s;
+      &:hover {
+        fill: #ed9728;
+      }
+    }
   }
 `;
 

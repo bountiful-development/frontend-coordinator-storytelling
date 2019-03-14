@@ -54,6 +54,8 @@ export const Card = styled.div`
   }
   svg {
     align-self: center;
+    fill: #39393a;
+    height: 180px;
   }
   .card-footer {
     display: flex;

@@ -10,8 +10,15 @@ export const GET_STORIES = 'GET_STORIES';
 export const GET_STORIES_SUCCESS = 'GET_STORIES_SUCCESS';
 export const GET_STORIES_FAILURE = 'GET_STORIES_FAILURE';
 
+
 export const GET_USER_STORIES = 'GET_USER_STORIES';
 export const USER_STORIES_GOT = 'USER_STORIES_GOT';
+
+// Story
+export const GET_STORY = 'GET_STORY';
+export const GET_STORY_SUCCESS = 'GET_STORY_SUCCESS';
+export const GET_STORY_FAILURE = 'GET_STORY_FAILURE';
+
 
 export const FILTER_STORIES = 'FILTER_STORIES';
 
@@ -70,15 +77,29 @@ export const filterStoriesByCountry = country => {
 
 export const addStory = (data, jwt) => dispatch => {
   dispatch({ type: ADD_STORY });
-  Axios
-      .post(`https://coordinator-storytelling-api.herokuapp.com/api/stories/`, data,
-        { headers: {
-          'Content-Type': 'application/json',
-          'Authorization': jwt
+  Axios.post(
+    `https://coordinator-storytelling-api.herokuapp.com/api/stories/`,
+    data,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: jwt
       }
-      })
-      .then(res => {
-          dispatch({ type: STORY_ADD, payload: res.data });
-      })
-      .catch(err => console.log(err));
-}
+    }
+  )
+    .then(res => {
+      dispatch({ type: STORY_ADD, payload: res.data });
+    })
+    .catch(err => console.log(err));
+};
+
+export const getStory = id => dispatch => {
+  dispatch({ type: GET_STORIES });
+  Axios.get(
+    `https://coordinator-storytelling-api.herokuapp.com/api/stories/${id}`
+  )
+    .then(res => {
+      dispatch({ type: GET_STORY_SUCCESS, payload: res.data });
+    })
+    .catch(err => console.log(err));
+};

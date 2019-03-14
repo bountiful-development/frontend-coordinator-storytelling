@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import {
   getStories,
   getUserStories,
+  getStory,
   filterStoriesByCountry,
   registerUser,
   loginUser,
@@ -74,14 +75,20 @@ class App extends Component {
                                 />
             )}
           />
-          <Route exact path="/:id" component={StoryView} />
+            path="/:id"
+            render={props => (
+              <StoryView
+                {...props}
+                getStory={this.props.getStory}
+                story={this.props.story}
+              />
+            )}
+          />
           <Route
             exact
             path="/coordinator/create-story"
             render={props => (
-              <CreateStoryView {...props}
-                               addStory={this.props.addStory}
-                                />
+              <CreateStoryView {...props} addStory={this.props.addStory} />
             )}
           />
           <Route
@@ -101,13 +108,22 @@ const mapStateToProps = state => {
     stories: state.story.visibleStories,
     userstories: state.story.userstories,
     isLogginIn: state.auth.isLogginIn,
-    isRegistering: state.auth.isRegistering
+    isRegistering: state.auth.isRegistering,
+    story: state.story.story
   };
 };
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { getStories, getUserStories, addStory, filterStoriesByCountry, registerUser, loginUser }
+    {
+      getStories,
+      getStory,
+    getUserStories,
+      addStory,
+      filterStoriesByCountry,
+      registerUser,
+      loginUser
+    }
   )(App)
 );

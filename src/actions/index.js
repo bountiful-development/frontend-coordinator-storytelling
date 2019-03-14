@@ -56,13 +56,14 @@ export const filterStoriesByCountry = country => {
   };
 };
 
-export const addStory = (data) => dispatch => {
+export const addStory = (data, jwt) => dispatch => {
   dispatch({ type: ADD_STORY });
   Axios
-      .post(`https://coordinator-storytelling-api.herokuapp.com/api/stories/`, data, {
-        headers: {
-          'Authorization': data.jwt
-        }
+      .post(`https://coordinator-storytelling-api.herokuapp.com/api/stories/`, data,
+        { headers: {
+          'Content-Type': 'application/json',
+          'Authorization': jwt
+      }
       })
       .then(res => {
           dispatch({ type: STORY_ADD, payload: res.data });

@@ -15,6 +15,10 @@ class DonorHomeView extends Component {
     this.props.filterStoriesByCountry(country);
   };
 
+  redirectToStory = id => {
+    this.props.history.push(`/${id}`);
+  };
+
   render() {
     return (
       <StyledDonorHomeView>
@@ -22,7 +26,10 @@ class DonorHomeView extends Component {
         <CountryFilter filterCountries={this.filterCountries} />
         <Container>
           <PageHeading>Our Stories</PageHeading>
-          <DonorCards stories={this.props.stories} />
+          <DonorCards
+            stories={this.props.stories}
+            redirectToStory={this.redirectToStory}
+          />
         </Container>
       </StyledDonorHomeView>
     );

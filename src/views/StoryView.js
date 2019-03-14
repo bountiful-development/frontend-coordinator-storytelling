@@ -6,13 +6,16 @@ import Story from '../components/Donor/Story/Story';
 import StorySidebar from '../components/Donor/Story/StorySidebar';
 
 class StoryView extends Component {
-  state = {};
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    this.props.getStory(id);
+  }
   render() {
     return (
       <StyledStoryView>
         <Navigation />
         <Container>
-          <Story />
+          <Story story={this.props.story} />
           <StorySidebar />
         </Container>
       </StyledStoryView>

@@ -3,7 +3,14 @@ import React from 'react';
 import Icon from '../../utilities/Icon';
 import { Card, ViewButton } from './Card';
 
-const DonorCard = ({ title, excerpt, author, country }) => {
+const DonorCard = ({
+  id,
+  title,
+  excerpt,
+  author,
+  country,
+  redirectToStory
+}) => {
   return (
     <Card>
       <h3>{country}</h3>
@@ -12,7 +19,7 @@ const DonorCard = ({ title, excerpt, author, country }) => {
       <p>{excerpt}</p>
       <div className="card-footer">
         <p>by: {author}</p>
-        <ViewButton>View</ViewButton>
+        <ViewButton onClick={() => redirectToStory(id)}>View</ViewButton>
       </div>
     </Card>
   );

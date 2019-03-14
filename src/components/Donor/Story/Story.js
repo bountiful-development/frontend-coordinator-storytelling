@@ -3,32 +3,14 @@ import styled from 'styled-components';
 import Icon from '../../../utilities/Icon';
 import { ViewButton } from '../../Card/Card';
 
-const Story = () => {
+const Story = ({ story }) => {
   return (
     <div className="story">
-      <PageHeading>Story</PageHeading>
+      <PageHeading>{story.story_title}</PageHeading>
       <CoordinatorName>By: Ryan Walker</CoordinatorName>
       <StoryContent>
-        <Icon name="brazil" />
-        <StoryText>
-          That's a son of a gun of a cloud. We'll paint one happy little tree
-          right here. I'm going to mix up a little color. We’ll use Van Dyke
-          Brown, Permanent Red, and a little bit of Prussian Blue. Absolutely no
-          pressure. You are just a whisper floating across a mountain. In
-          painting, you have unlimited power. You have the ability to move
-          mountains. We'll lay all these little funky little things in there. It
-          is a lot of fun. There comes a nice little fluffer. Everyone is going
-          to see things differently - and that's the way it should be.
-          Exercising the imagination, experimenting with talents, being
-          creative; these things, to me, are truly the windows to your soul.
-          That's crazy. Just take out whatever you don't want. It'll change your
-          entire perspective. It is a lot of fun. There comes a nice little
-          fluffer. Everyone is going to see things differently - and that's the
-          way it should be. Exercising the imagination, experimenting with
-          talents, being creative; these things, to me, are truly the windows to
-          your soul. That's crazy. Just take out whatever you don't want. It'll
-          change your entire perspective.
-        </StoryText>
+        <Icon name={story.story_country} />
+        <StoryText>{story.story_description}</StoryText>
         <ViewButton>Donate</ViewButton>
       </StoryContent>
     </div>
@@ -50,6 +32,7 @@ const StoryContent = styled.div`
     float: left;
     margin-right: 2rem;
     margin-bottom: 2rem;
+    fill: #39393a;
   }
 `;
 

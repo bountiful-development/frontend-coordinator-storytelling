@@ -3,6 +3,7 @@ import { withRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   getStories,
+  getStory,
   filterStoriesByCountry,
   registerUser,
   loginUser,
@@ -62,14 +63,22 @@ class App extends Component {
               />
             )}
           />
-          <Route exact path="/:id" component={StoryView} />
+          <Route
+            exact
+            path="/:id"
+            render={props => (
+              <StoryView
+                {...props}
+                getStory={this.props.getStory}
+                story={this.props.story}
+              />
+            )}
+          />
           <Route
             exact
             path="/coordinator/create-story"
             render={props => (
-              <CreateStoryView {...props}
-                               addStory={this.props.addStory}
-                                />
+              <CreateStoryView {...props} addStory={this.props.addStory} />
             )}
           />
           <Route
@@ -93,13 +102,21 @@ const mapStateToProps = state => {
     token: state.auth.token,
     stories: state.story.visibleStories,
     isLogginIn: state.auth.isLogginIn,
-    isRegistering: state.auth.isRegistering
+    isRegistering: state.auth.isRegistering,
+    story: state.story.story
   };
 };
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { getStories, addStory, filterStoriesByCountry, registerUser, loginUser }
+    {
+      getStories,
+      getStory,
+      addStory,
+      filterStoriesByCountry,
+      registerUser,
+      loginUser
+    }
   )(App)
 );

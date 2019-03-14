@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import RegisterForm from '../components/Register/RegisterForm';
+import Icon from '../utilities/Icon';
 
 class RegisterView extends Component {
   render() {
@@ -9,10 +10,13 @@ class RegisterView extends Component {
       <StyledRegisterView>
         <Container>
           <Link to="/" className="home-link">
-            <h1>Donor Homepage</h1>
+            <Icon name="home" />
+            {/* <h2>Donor Homepage</h2> */}
           </Link>
-          <RegisterForm registerUser={this.props.registerUser}
-                        isRegistering={this.props.isRegistering} />
+          <RegisterForm
+            registerUser={this.props.registerUser}
+            isRegistering={this.props.isRegistering}
+          />
         </Container>
       </StyledRegisterView>
     );
@@ -43,8 +47,27 @@ const Container = styled.div`
 
   .home-link {
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 0;
+    display: flex;
+    align-items: center;
+    /* height: 50px; */
+    text-decoration: none;
+    h2 {
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #39393a;
+    }
+    svg {
+      height: 30px;
+      width: 30px;
+      margin-right: 1rem;
+      fill: #39393a;
+      transition: all 0.2s;
+      &:hover {
+        fill: #ed9728;
+      }
+    }
   }
 `;
 

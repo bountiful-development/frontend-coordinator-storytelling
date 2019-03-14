@@ -16,7 +16,7 @@ class StoryView extends Component {
         <Navigation />
         <Container>
           <Story story={this.props.story} />
-          <StorySidebar />
+          <StorySidebar story={this.props.story} />
         </Container>
       </StyledStoryView>
     );

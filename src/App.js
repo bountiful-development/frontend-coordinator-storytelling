@@ -23,6 +23,7 @@ class App extends Component {
     if (prevProps.token !== this.props.token) {
       localStorage.setItem('token', this.props.token);
       localStorage.setItem('curid', this.props.curid);
+      localStorage.setItem('curemail', this.props.curemail)
       this.props.history.push('/');
     }
   }
@@ -109,6 +110,8 @@ const mapStateToProps = state => {
     token: state.auth.token,
     stories: state.story.visibleStories,
     userstories: state.story.userstories,
+    curid: state.auth.curid,
+    curemail: state.auth.curemail,
     isLogginIn: state.auth.isLogginIn,
     isRegistering: state.auth.isRegistering,
     story: state.story.story

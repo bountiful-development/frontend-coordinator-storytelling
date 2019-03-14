@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Card } from '../../../DonorCardscomponents/Card/Card';
+import { Card } from '../../Card/Card';
 
 const StorySidebar = () => {
   return (

@@ -68,6 +68,7 @@ class App extends Component {
             path="/coordinator/:id/create-story"
             render={props => (
               <CreateStoryView {...props}
+                               addStory={this.props.addStory}
                                 />
             )}
           />

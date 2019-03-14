@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getStories, registerUser, loginUser } from './actions';
+import {
+  getStories,
+  filterStoriesByCountry,
+  registerUser,
+  loginUser
+} from './actions';
 import CoordinatorHomeView from './views/CoordinatorHomeView';
 import CreateStoryView from './views/CreateStoryView';
 import DonorHomeView from './views/DonorHomeView';
@@ -14,7 +19,7 @@ class App extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.token !== this.props.token) {
       localStorage.setItem('token', this.props.token);
-      this.props.history.push('/')
+      this.props.history.push('/');
     }
   }
 
@@ -30,6 +35,7 @@ class App extends Component {
                 {...props}
                 getStories={this.props.getStories}
                 stories={this.props.stories}
+                filterStoriesByCountry={this.props.filterStoriesByCountry}
               />
             )}
           />
@@ -37,8 +43,11 @@ class App extends Component {
             exact
             path="/register"
             render={props => (
-              <RegisterView {...props} registerUser={this.props.registerUser}
-                                       isRegistering={this.props.isRegistering} />
+              <RegisterView
+                {...props}
+                registerUser={this.props.registerUser}
+                isRegistering={this.props.isRegistering}
+              />
             )}
           />
           <Route
@@ -77,7 +86,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     token: state.auth.token,
-    stories: state.story.stories,
+    stories: state.story.visibleStories,
     isLogginIn: state.auth.isLogginIn,
     isRegistering: state.auth.isRegistering
   };
@@ -86,6 +95,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { getStories, registerUser, loginUser }
+    { getStories, filterStoriesByCountry, registerUser, loginUser }
   )(App)
 );

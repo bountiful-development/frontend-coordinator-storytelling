@@ -5,6 +5,12 @@ import {
   GET_STORY,
   GET_STORY_SUCCESS,
   GET_STORY_FAILURE,
+  EDIT_STORY,
+  EDIT_STORY_SUCCESS,
+  EDIT_STORY_FAILURE,
+  DELETE_STORY,
+  DELETE_STORY_SUCCESS,
+  DELETE_STORY_FAILURE,
   FILTER_STORIES,
   ADD_STORY,
   STORY_ADD,
@@ -57,6 +63,40 @@ export const storyReducer = (state = initalState, action) => {
         isFetchingStory: false
       };
     case GET_STORY_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetchingStory: false
+      };
+    case EDIT_STORY:
+      return {
+        ...state,
+        isFetchingStory: true
+      };
+    case EDIT_STORY_SUCCESS:
+      return {
+        ...state,
+        story: { ...action.payload },
+        isFetchingStory: false
+      };
+    case EDIT_STORY_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetchingStory: false
+      };
+    case DELETE_STORY:
+      return {
+        ...state,
+        isFetchingStory: true
+      };
+    case DELETE_STORY_SUCCESS:
+      return {
+        ...state,
+        story: { ...action.payload },
+        isFetchingStory: false
+      };
+    case DELETE_STORY_FAILURE:
       return {
         ...state,
         error: action.payload,

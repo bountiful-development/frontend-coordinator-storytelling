@@ -10,7 +10,7 @@ class StoryForm extends Component {
 
   handleAdd(e) {
     e.preventDefault();
-    const jwts = localStorage.getItem('jwt');
+    const jwts = localStorage.getItem('token');
     let dataPack = {
         story_title: this.state.title,
         story_description: this.state.story,

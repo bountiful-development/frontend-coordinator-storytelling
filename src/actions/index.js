@@ -12,6 +12,9 @@ export const GET_STORIES_FAILURE = 'GET_STORIES_FAILURE';
 
 export const FILTER_STORIES = 'FILTER_STORIES';
 
+export const ADD_STORY = 'ADD_STORY';
+export const STORY_ADD = 'STORY_ADD';
+
 export const registerUser = newUser => dispatch => {
   console.log('Registering');
   dispatch({ type: REGISTER_USER });
@@ -52,3 +55,17 @@ export const filterStoriesByCountry = country => {
     payload: country
   };
 };
+
+export const addStory = (data) => dispatch => {
+  dispatch({ type: ADD_STORY });
+  Axios
+      .post(`https://coordinator-storytelling-api.herokuapp.com/api/stories/`, data, {
+        headers: {
+          'Authorization': data.jwt
+        }
+      })
+      .then(res => {
+          dispatch({ type: STORY_ADD, payload: res.data });
+      })
+      .catch(err => console.log(err));
+}

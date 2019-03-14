@@ -11,7 +11,7 @@ class CreateStoryView extends Component {
         <Navigation />
         <Container>
           <PageHeading>Add Story</PageHeading>
-          <StoryForm />
+          <StoryForm addStory={this.props.addStory} />
         </Container>
       </StyledCreateStoryView>
     );

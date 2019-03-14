@@ -69,12 +69,14 @@ class App extends Component {
             exact
             path="/coordinator"
             render={props => (
-              <CoordinatorHomeView {...props}
-                               userstories={this.props.userstories}
-                               getUserStories={this.props.getUserStories}
-                                />
+              <CoordinatorHomeView
+                {...props}
+                userstories={this.props.userstories}
+                getUserStories={this.props.getUserStories}
+              />
             )}
           />
+          <Route
             path="/:id"
             render={props => (
               <StoryView
@@ -119,7 +121,7 @@ export default withRouter(
     {
       getStories,
       getStory,
-    getUserStories,
+      getUserStories,
       addStory,
       filterStoriesByCountry,
       registerUser,

@@ -6,9 +6,10 @@ import logo from '../../img/logo.svg';
 const NavCheck = () => {
   const [toggle, setToggle] = useState(false);
   if (localStorage.getItem('token')) {
+    const curemail = localStorage.getItem('curemail');
     return (
       <LoginNav>
-        <Link to="/coordinator">email@email.com</Link>
+        <Link to="/coordinator">{curemail}</Link>
         <div onClick={() => setToggle(!toggle)} className="toggle">
           V
         </div>

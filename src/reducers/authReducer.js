@@ -38,6 +38,7 @@ export const authReducer = (state = initalState, action) => {
         error: '',
         token: action.payload.token,
         curid: action.payload.curid,
+        curemail: action.payload.curemail,
         isLogginIn: false
       }
     default:

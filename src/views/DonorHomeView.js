@@ -5,15 +5,19 @@ import DonorCards from '../components/Card/DonorCards';
 import Navigation from '../components/Navigation/Navigation';
 
 class DonorHomeView extends Component {
-  state = { stories: [] };
   componentDidMount() {
     this.props.getStories();
   }
+
+  filterCountries = country => {
+    this.props.filterStoriesByCountry(country);
+  };
+
   render() {
     return (
       <StyledDonorHomeView>
         <Navigation />
-        <CountryFilter />
+        <CountryFilter filterCountries={this.filterCountries} />
         <Container>
           <PageHeading>Our Stories</PageHeading>
           <DonorCards stories={this.props.stories} />

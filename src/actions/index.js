@@ -10,6 +10,8 @@ export const GET_STORIES = 'GET_STORIES';
 export const GET_STORIES_SUCCESS = 'GET_STORIES_SUCCESS';
 export const GET_STORIES_FAILURE = 'GET_STORIES_FAILURE';
 
+export const FILTER_STORIES = 'FILTER_STORIES';
+
 export const registerUser = newUser => dispatch => {
   console.log('Registering');
   dispatch({ type: REGISTER_USER });
@@ -42,4 +44,11 @@ export const getStories = () => dispatch => {
       dispatch({ type: GET_STORIES_SUCCESS, payload: res.data });
     })
     .catch(err => console.log(err));
+};
+
+export const filterStoriesByCountry = country => {
+  return {
+    type: FILTER_STORIES,
+    payload: country
+  };
 };

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Icon from '../../../utilities/Icon';
 
 const countries = [
+  'all',
   'bolivia',
   'brazil',
   'cambodia',
@@ -26,13 +27,21 @@ const countries = [
 
 class CountryFilter extends Component {
   state = {};
+  handleStoryFilter = country => {
+    console.log(country);
+    this.props.filterCountries(country);
+  };
   render() {
     return (
       <StyledCountryFilter>
         <Container>
           {countries.map(country => {
             return (
-              <div className="country-container" key={country}>
+              <div
+                className="country-container"
+                key={country}
+                onClick={() => this.handleStoryFilter(country)}
+              >
                 <Icon name={country} />
                 <p>{country}</p>
               </div>
@@ -46,6 +55,7 @@ class CountryFilter extends Component {
 
 const StyledCountryFilter = styled.nav`
   height: 135px;
+  /* width: 135px; */
   background: #39393a;
   h1 {
     color: #fff;
@@ -63,20 +73,31 @@ const Container = styled.div`
   overflow: hidden;
   .country-container {
     height: 100px;
+    min-width: 100px;
+    /* border: 1px solid white; */
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+
     svg {
       height: 100%;
+      width: 100%;
       color: #fff;
+      margin-bottom: 1rem;
       /* background: #fff; */
       fill: #fff;
+      transition: all 0.2s;
+      &:hover {
+        fill: #ed9728;
+      }
     }
     p {
       color: #fff;
       text-transform: uppercase;
       font-weight: 700;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
   }
 `;

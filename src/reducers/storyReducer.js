@@ -134,7 +134,7 @@ export const storyReducer = (state = initalState, action) => {
       return {
         ...state,
         gettingUS: false,
-        userstories: action.payload
+        userstories: [...action.payload]
       };
     default:
       return state;

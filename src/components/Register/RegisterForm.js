@@ -64,11 +64,11 @@ class RegisterForm extends Component {
     }
     console.log(newUser);
     this.props.registerUser(newUser);
-    let user = {
-      email: this.state.email,
-      password: this.state.password
-    }
-    this.props.loginUser(user);
+    // let user = {
+    //   email: this.state.email,
+    //   password: this.state.password
+    // }
+    // this.props.loginUser(user);
     this.setState({
       name: '',
       country: '',
@@ -149,6 +149,9 @@ class RegisterForm extends Component {
           />
         </div>
         <SubmitButton type="submit">Sign Up</SubmitButton>
+        <div>
+          {(this.props.isRegistering ? <p>Registering...</p> : <p></p>)}
+        </div>
         <RedirectA>
           <span>Already signed up?</span>
           <Link to="/login">Login</Link>

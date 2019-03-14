@@ -11,7 +11,8 @@ class RegisterView extends Component {
           <Link to="/" className="home-link">
             <h1>Donor Homepage</h1>
           </Link>
-          <RegisterForm registerUser={this.props.registerUser} />
+          <RegisterForm registerUser={this.props.registerUser}
+                        isRegistering={this.props.isRegistering} />
         </Container>
       </StyledRegisterView>
     );

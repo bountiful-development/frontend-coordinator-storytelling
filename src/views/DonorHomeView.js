@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import CountryFilter from '../components/Donor/CountryFilter/CountryFilter';
 import DonorCards from '../components/Card/DonorCards';
 import Navigation from '../components/Navigation/Navigation';
 
@@ -12,6 +13,7 @@ class DonorHomeView extends Component {
     return (
       <StyledDonorHomeView>
         <Navigation />
+        <CountryFilter />
         <Container>
           <PageHeading>Our Stories</PageHeading>
           <DonorCards stories={this.props.stories} />

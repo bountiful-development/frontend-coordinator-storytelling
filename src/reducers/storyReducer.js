@@ -4,14 +4,18 @@ import {
   GET_STORIES_SUCCESS,
   FILTER_STORIES,
   ADD_STORY,
-  STORY_ADD
+  STORY_ADD,
+  GET_USER_STORIES,
+  USER_STORIES_GOT
 } from '../actions';
 
 const initalState = {
   isFetchingStories: false,
   isFetchingStory: false,
   isAddingStory: false,
+  gettingUS: false,
   stories: [],
+  userstories: [],
   visibleStories: [],
   message: '',
   error: null
@@ -59,6 +63,17 @@ export const storyReducer = (state = initalState, action) => {
       return {
         ...state,
         isAddingStory: false
+      }
+    case GET_USER_STORIES:
+      return {
+        ...state,
+        gettingUS: true
+      }
+    case USER_STORIES_GOT:
+      return {
+        ...state,
+        gettingUS: false,
+        userstories: action.payload
       }
     default:
       return state;

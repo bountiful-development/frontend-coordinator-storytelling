@@ -37,6 +37,7 @@ export const authReducer = (state = initalState, action) => {
         ...state,
         error: '',
         token: action.payload.token,
+        curid: action.payload.curid,
         isLogginIn: false
       }
     default:

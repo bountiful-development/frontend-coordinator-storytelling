@@ -3,6 +3,7 @@ import { withRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   getStories,
+  getUserStories,
   filterStoriesByCountry,
   registerUser,
   loginUser,
@@ -20,6 +21,7 @@ class App extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.token !== this.props.token) {
       localStorage.setItem('token', this.props.token);
+      localStorage.setItem('curid', this.props.curid);
       this.props.history.push('/');
     }
   }
@@ -62,6 +64,16 @@ class App extends Component {
               />
             )}
           />
+          <Route
+            exact
+            path="/coordinator"
+            render={props => (
+              <CoordinatorHomeView {...props}
+                               userstories={this.props.userstories}
+                               getUserStories={this.props.getUserStories}
+                                />
+            )}
+          />
           <Route exact path="/:id" component={StoryView} />
           <Route
             exact
@@ -77,11 +89,6 @@ class App extends Component {
             path="/coordinator/:id/edit-story"
             component={EditStoryView}
           />
-          <Route
-            exact
-            path="/coordinator/:id"
-            component={CoordinatorHomeView}
-          />
         </Switch>
       </div>
     );
@@ -92,6 +99,7 @@ const mapStateToProps = state => {
   return {
     token: state.auth.token,
     stories: state.story.visibleStories,
+    userstories: state.story.userstories,
     isLogginIn: state.auth.isLogginIn,
     isRegistering: state.auth.isRegistering
   };
@@ -100,6 +108,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { getStories, addStory, filterStoriesByCountry, registerUser, loginUser }
+    { getStories, getUserStories, addStory, filterStoriesByCountry, registerUser, loginUser }
   )(App)
 );

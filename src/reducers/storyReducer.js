@@ -2,12 +2,15 @@ import {
   GET_STORIES,
   GET_STORIES_FAILURE,
   GET_STORIES_SUCCESS,
-  FILTER_STORIES
+  FILTER_STORIES,
+  ADD_STORY,
+  STORY_ADD
 } from '../actions';
 
 const initalState = {
   isFetchingStories: false,
   isFetchingStory: false,
+  isAddingStory: false,
   stories: [],
   visibleStories: [],
   message: '',
@@ -47,6 +50,16 @@ export const storyReducer = (state = initalState, action) => {
         ...state,
         visibleStories: [...filtered]
       };
+    case ADD_STORY:
+      return {
+        ...state,
+        isAddingStory: true
+      }
+    case STORY_ADD:
+      return {
+        ...state,
+        isAddingStory: false
+      }
     default:
       return state;
   }

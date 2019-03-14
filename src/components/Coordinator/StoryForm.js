@@ -5,11 +5,29 @@ import { ViewButton } from '../Card/Card';
 
 class StoryForm extends Component {
   state = { title: '', story: '' };
+
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
+
+  handleAdd(e) {
+    e.preventDefault();
+    const jwt = localStorage.getItem('jwt');
+    let dataPack = {
+        story_title: this.state.title,
+        story_description: this.state.story,
+        user_id: null,
+        jwt: jwt
+    }
+    this.props.addStory(dataPack);
+    this.setState({
+      title: '',
+      story: ''
+    })
+  }
+
   render() {
     const { title, story } = this.state;
     return (
-      <AddStoryForm>
+      <AddStoryForm onSubmit={e => this.handleAdd(e)}>
         <div className="form-group">
           <label htmlFor="title">Title</label>
           <input

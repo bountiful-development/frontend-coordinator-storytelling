@@ -5,7 +5,8 @@ import {
   getStories,
   filterStoriesByCountry,
   registerUser,
-  loginUser
+  loginUser,
+  addStory
 } from './actions';
 import CoordinatorHomeView from './views/CoordinatorHomeView';
 import CreateStoryView from './views/CreateStoryView';
@@ -65,7 +66,10 @@ class App extends Component {
           <Route
             exact
             path="/coordinator/:id/create-story"
-            component={CreateStoryView}
+            render={props => (
+              <CreateStoryView {...props}
+                                />
+            )}
           />
           <Route
             exact
@@ -95,6 +99,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { getStories, filterStoriesByCountry, registerUser, loginUser }
+    { getStories, addStory, filterStoriesByCountry, registerUser, loginUser }
   )(App)
 );

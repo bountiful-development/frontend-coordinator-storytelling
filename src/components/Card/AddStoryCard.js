@@ -35,6 +35,7 @@ const AddCard = styled(Card)`
   background: #fff;
   a {
     color: #39393a;
+    text-decoration: none;
   }
   h3 {
     margin-bottom: 4rem;

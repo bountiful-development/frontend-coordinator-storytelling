@@ -10,9 +10,9 @@ class CoordinatorCards extends Component {
   render() {
     return (
       <CardContainer>
-        <Link to="/coordinator/create-story">
+        {/* <Link to="/coordinator/create-story"> */}
         <AddStoryCard />
-        </Link>
+        {/* </Link> */}
         {this.props.userstories.map(story => (
           <CoordinatorCard
             title={story.story_title}

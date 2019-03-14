@@ -6,7 +6,9 @@ import Navigation from '../components/Navigation/Navigation';
 
 class DonorHomeView extends Component {
   componentDidMount() {
-    this.props.getStories();
+    if (!this.props.stories.length) {
+      this.props.getStories();
+    }
   }
 
   filterCountries = country => {

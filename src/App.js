@@ -77,16 +77,6 @@ class App extends Component {
             )}
           />
           <Route
-            path="/:id"
-            render={props => (
-              <StoryView
-                {...props}
-                getStory={this.props.getStory}
-                story={this.props.story}
-              />
-            )}
-          />
-          <Route
             exact
             path="/coordinator/create-story"
             render={props => (
@@ -97,6 +87,16 @@ class App extends Component {
             exact
             path="/coordinator/:id/edit-story"
             component={EditStoryView}
+          />
+          <Route
+            path="/:id"
+            render={props => (
+              <StoryView
+                {...props}
+                getStory={this.props.getStory}
+                story={this.props.story}
+              />
+            )}
           />
         </Switch>
       </div>

@@ -111,3 +111,32 @@ export const getStory = id => dispatch => {
     })
     .catch(err => console.log(err));
 };
+
+export const editStory = (id, data, jwt) => dispatch => {
+  dispatch({ type: EDIT_STORY });
+  Axios.post(
+    `https://coordinator-storytelling-api.herokuapp.com/api/stories/${id}`,
+    data,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: jwt
+      }
+    }
+  )
+    .then(res => {
+      dispatch({ type: EDIT_STORY_SUCCESS, payload: { ...data } });
+    })
+    .catch(err => console.log(err));
+};
+
+export const deleteStory = id => dispatch => {
+  dispatch({ type: DELETE_STORY });
+  Axios.delete(
+    `https://coordinator-storytelling-api.herokuapp.com/api/stories/${id}`
+  )
+    .then(res => {
+      dispatch({ type: DELETE_STORY_SUCCESS, payload: id });
+    })
+    .catch(err => console.log(err));
+};

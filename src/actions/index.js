@@ -10,10 +10,15 @@ export const GET_STORIES = 'GET_STORIES';
 export const GET_STORIES_SUCCESS = 'GET_STORIES_SUCCESS';
 export const GET_STORIES_FAILURE = 'GET_STORIES_FAILURE';
 
+
+export const GET_USER_STORIES = 'GET_USER_STORIES';
+export const USER_STORIES_GOT = 'USER_STORIES_GOT';
+
 // Story
 export const GET_STORY = 'GET_STORY';
 export const GET_STORY_SUCCESS = 'GET_STORY_SUCCESS';
 export const GET_STORY_FAILURE = 'GET_STORY_FAILURE';
+
 
 export const FILTER_STORIES = 'FILTER_STORIES';
 
@@ -50,6 +55,15 @@ export const getStories = () => dispatch => {
   Axios.get('https://coordinator-storytelling-api.herokuapp.com/api/stories/')
     .then(res => {
       dispatch({ type: GET_STORIES_SUCCESS, payload: res.data });
+    })
+    .catch(err => console.log(err));
+};
+
+export const getUserStories = (curid) => dispatch => {
+  dispatch({ type: GET_USER_STORIES });
+  Axios.get('https://coordinator-storytelling-api.herokuapp.com/api/stories/users/curid')
+    .then(res => {
+      dispatch({ type: USER_STORIES_GOT, payload: res.data });
     })
     .catch(err => console.log(err));
 };

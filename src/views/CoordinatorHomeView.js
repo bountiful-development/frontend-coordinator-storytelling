@@ -5,13 +5,20 @@ import Navigation from '../components/Navigation/Navigation';
 
 class CoordinatorHomeView extends Component {
   state = {};
+
+  componentDidMount(){
+    if(this.props.userstories.length <= 0){
+    let curid = localStorage.getItem('curid');
+    this.props.getUserStories(curid);
+    }
+  }
   render() {
     return (
       <StyledCoordinatorHomeView>
         <Navigation />
         <Container>
           <PageHeading>My Stories</PageHeading>
-          <CoordinatorCards />
+          <CoordinatorCards userstories={this.props.userstories} />
         </Container>
       </StyledCoordinatorHomeView>
     );

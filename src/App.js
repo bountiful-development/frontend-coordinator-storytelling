@@ -3,6 +3,7 @@ import { withRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   getStories,
+  getUserStories,
   getStory,
   filterStoriesByCountry,
   registerUser,
@@ -21,6 +22,7 @@ class App extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.token !== this.props.token) {
       localStorage.setItem('token', this.props.token);
+      localStorage.setItem('curid', this.props.curid);
       this.props.history.push('/');
     }
   }
@@ -65,12 +67,12 @@ class App extends Component {
           />
           <Route
             exact
-            path="/:id"
+            path="/coordinator"
             render={props => (
-              <StoryView
+              <CoordinatorHomeView
                 {...props}
-                getStory={this.props.getStory}
-                story={this.props.story}
+                userstories={this.props.userstories}
+                getUserStories={this.props.getUserStories}
               />
             )}
           />
@@ -87,9 +89,14 @@ class App extends Component {
             component={EditStoryView}
           />
           <Route
-            exact
-            path="/coordinator/:id"
-            component={CoordinatorHomeView}
+            path="/:id"
+            render={props => (
+              <StoryView
+                {...props}
+                getStory={this.props.getStory}
+                story={this.props.story}
+              />
+            )}
           />
         </Switch>
       </div>
@@ -101,6 +108,7 @@ const mapStateToProps = state => {
   return {
     token: state.auth.token,
     stories: state.story.visibleStories,
+    userstories: state.story.userstories,
     isLogginIn: state.auth.isLogginIn,
     isRegistering: state.auth.isRegistering,
     story: state.story.story
@@ -113,6 +121,7 @@ export default withRouter(
     {
       getStories,
       getStory,
+      getUserStories,
       addStory,
       filterStoriesByCountry,
       registerUser,

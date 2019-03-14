@@ -65,7 +65,7 @@ class App extends Component {
           <Route exact path="/:id" component={StoryView} />
           <Route
             exact
-            path="/coordinator/:id/create-story"
+            path="/coordinator/create-story"
             render={props => (
               <CreateStoryView {...props}
                                addStory={this.props.addStory}

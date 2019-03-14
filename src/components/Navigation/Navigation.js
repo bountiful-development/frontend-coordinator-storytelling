@@ -7,7 +7,7 @@ const NavCheck = () => {
   if(localStorage.getItem('token')){
     return (
       <LoginNav>
-        LOGGED IN
+        <Link to="/coordinator/create-story">Create Story</Link> | Log Out
       </LoginNav>
     )
   } else {

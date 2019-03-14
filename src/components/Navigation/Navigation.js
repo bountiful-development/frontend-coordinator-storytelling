@@ -1,23 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../img/logo.svg';
 
 const NavCheck = () => {
-  if(localStorage.getItem('token')){
+  const [toggle, setToggle] = useState(false);
+  if (localStorage.getItem('token')) {
     return (
       <LoginNav>
-        <Link to="/coordinator/create-story">Create Story</Link> | Log Out
+        <Link to="/coordinator">email@email.com</Link>
+        <div onClick={() => setToggle(!toggle)} className="toggle">
+          V
+        </div>
+
+        {toggle && (
+          <div className="nav">
+            <Link class="dropdown" to="/coordinator/create-story">
+              Create Story
+            </Link>
+            <Link class="dropdown" to="/">
+              All Stories
+            </Link>
+            <Link class="dropdown" to="/">
+              Logout
+            </Link>
+          </div>
+        )}
+        {/* <Link to="/coordinator/create-story">Create Story</Link> | Log Out */}
       </LoginNav>
-    )
+    );
   } else {
     return (
       <LoginNav>
         <Link to="/login">Login</Link> | <Link to="/register">Sign Up</Link>
       </LoginNav>
-    )
+    );
   }
-}
+};
 
 const Navigation = () => {
   return (
@@ -56,6 +75,33 @@ const Container = styled.div`
 `;
 
 const LoginNav = styled.nav`
+  position: relative;
+  display: flex;
+
+  .toggle {
+    margin: 0 3rem;
+    cursor: pointer;
+  }
+  .nav {
+    background: rgba(57, 57, 57, 0.8);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 52px;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+
+    .dropdown {
+      font-size: 1.6rem;
+      padding: 2rem;
+      width: 100%;
+      color: #fff;
+      &:not(:last-child) {
+        border-bottom: 1px solid rgba(57, 57, 57, 1);
+      }
+    }
+  }
   a,
   a:visited {
     color: #39393a;

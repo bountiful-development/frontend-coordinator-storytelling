@@ -25,7 +25,11 @@ class StoryForm extends Component {
       story_description: this.state.story,
       jwt: jwts
     };
-    this.props.addStory(dataPack, jwts);
+    if (this.props.story) {
+      this.props.editStory(this.props.story.id, dataPack);
+    } else {
+      this.props.addStory(dataPack);
+    }
     this.setState({
       title: '',
       story: ''

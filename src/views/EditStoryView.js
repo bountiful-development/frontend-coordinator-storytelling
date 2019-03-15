@@ -11,7 +11,10 @@ class EditStoryView extends Component {
         <Navigation />
         <Container>
           <PageHeading>Edit Story</PageHeading>
-          <StoryForm story={this.props.story} />
+          <StoryForm
+            story={this.props.story}
+            editStory={this.props.editStory}
+          />
         </Container>
       </StyledEditStoryView>
     );

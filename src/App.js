@@ -3,6 +3,7 @@ import { withRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
   deleteStory,
+  editStory,
   getStories,
   getUserStories,
   getStory,
@@ -90,7 +91,12 @@ class App extends Component {
           <Route
             exact
             path="/coordinator/edit-story"
-            render={props => <EditStoryView story={this.props.story} />}
+            render={props => (
+              <EditStoryView
+                story={this.props.story}
+                editStory={this.props.editStory}
+              />
+            )}
           />
           <Route
             path="/:id"
@@ -126,6 +132,7 @@ export default withRouter(
     mapStateToProps,
     {
       deleteStory,
+      editStory,
       getStories,
       getStory,
       getUserStories,

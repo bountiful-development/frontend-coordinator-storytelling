@@ -19,6 +19,11 @@ class CoordinatorHomeView extends Component {
     this.props.getStory(id, redirectTo);
   };
 
+  deleteStoryWithToken = id => {
+    const jwt = localStorage.getItem('token');
+    this.props.deleteStory(id, jwt);
+  };
+
   render() {
     return (
       <StyledCoordinatorHomeView>
@@ -27,7 +32,7 @@ class CoordinatorHomeView extends Component {
           <PageHeading>My Stories</PageHeading>
           <CoordinatorCards
             userstories={this.props.userstories}
-            deleteStory={this.props.deleteStory}
+            deleteStory={this.deleteStoryWithToken}
             getStory={this.getStoryThenRedirect}
           />
         </Container>

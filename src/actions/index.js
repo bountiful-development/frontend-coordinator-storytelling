@@ -84,7 +84,7 @@ export const filterStoriesByCountry = country => {
   };
 };
 
-export const addStory = (data, jwt) => dispatch => {
+export const addStory = data => dispatch => {
   dispatch({ type: ADD_STORY });
   Axios.post(
     `https://coordinator-storytelling-api.herokuapp.com/api/stories/`,
@@ -92,7 +92,7 @@ export const addStory = (data, jwt) => dispatch => {
     {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: jwt
+        Authorization: data.jwt
       }
     }
   )
@@ -116,28 +116,34 @@ export const getStory = (id, cb) => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const editStory = (id, data, jwt) => dispatch => {
+export const editStory = (id, data) => dispatch => {
   dispatch({ type: EDIT_STORY });
-  Axios.post(
+  Axios.put(
     `https://coordinator-storytelling-api.herokuapp.com/api/stories/${id}`,
     data,
     {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: jwt
+        Authorization: data.jwt
       }
     }
   )
     .then(res => {
-      dispatch({ type: EDIT_STORY_SUCCESS, payload: { ...data } });
+      dispatch({ type: EDIT_STORY_SUCCESS, payload: res.data });
     })
     .catch(err => console.log(err));
 };
 
-export const deleteStory = id => dispatch => {
+export const deleteStory = (id, token) => dispatch => {
   dispatch({ type: DELETE_STORY });
   Axios.delete(
-    `https://coordinator-storytelling-api.herokuapp.com/api/stories/${id}`
+    `https://coordinator-storytelling-api.herokuapp.com/api/stories/${id}`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token
+      }
+    }
   )
     .then(res => {
       dispatch({ type: DELETE_STORY_SUCCESS, payload: id });

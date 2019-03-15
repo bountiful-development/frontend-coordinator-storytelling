@@ -74,9 +74,15 @@ export const storyReducer = (state = initalState, action) => {
         isFetchingStory: true
       };
     case EDIT_STORY_SUCCESS:
+      let index;
+      state.stories.forEach((story, i) =>
+        story.id === action.payload.id ? (index = i) : null
+      );
+      const updatedStories = [...state.stories];
+      updatedStories.splice(index, 1, action.payload);
       return {
         ...state,
-        story: { ...action.payload },
+        stories: [...updatedStories],
         isFetchingStory: false
       };
     case EDIT_STORY_FAILURE:

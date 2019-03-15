@@ -8,11 +8,13 @@
 - [TDD](https://docs.google.com/document/d/1myM0ixJFxG_dVFY83cmMMMTPvoFPWMsQdflmZ3BJnEo/edit)
 - [Policies and Procedures](https://www.notion.so/Policies-and-Procedures-19e679fc1a284b668d8132dd8d7228cd)
 
+
 ### Git Flow
 No forks will be used in the git repo!
 
 1. Clone the master branch of the repository: `git clone [repo link]`
     - **DO NOT FORK THE REPO**
+    - `yarn install`
 2. Confirm master is up-to-date: `git pull`
 3. Create new branch: `git branch [firstname-lastname]`
 4. Checkout branch: `git checkout [firstname-lastname]`

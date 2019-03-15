@@ -27,7 +27,6 @@ const NavCheck = () => {
             </Link>
           </div>
         )}
-        {/* <Link to="/coordinator/create-story">Create Story</Link> | Log Out */}
       </LoginNav>
     );
   } else {
@@ -44,8 +43,10 @@ const Navigation = () => {
     <AppHeader>
       <Container>
         <AppHeading>
-          <img src={logo} alt="logo" />
-          Coordinator <span>Storytelling</span>
+          <Link to="/">
+            <img src={logo} alt="logo" />
+            Coordinator <span>Storytelling</span>
+          </Link>
         </AppHeading>
         {NavCheck()}
       </Container>
@@ -57,6 +58,13 @@ const AppHeader = styled.header`
   background: #fff;
   height: 80px;
   border-bottom: 1px solid #e6e6e6;
+  a,
+  a:visited {
+    color: #39393a;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
 `;
 
 const Container = styled.div`

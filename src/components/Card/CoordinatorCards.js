@@ -15,6 +15,10 @@ class CoordinatorCards extends Component {
             title={story.story_title}
             excerpt={story.story_description.substring(0, 100) + '...'}
             country={story.story_country}
+            key={story.id}
+            id={story.id}
+            getStory={this.props.getStory}
+            deleteStory={this.props.deleteStory}
           />
         ))}
       </CardContainer>

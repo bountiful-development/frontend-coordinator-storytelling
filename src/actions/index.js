@@ -102,13 +102,16 @@ export const addStory = (data, jwt) => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const getStory = id => dispatch => {
+export const getStory = (id, cb) => dispatch => {
   dispatch({ type: GET_STORIES });
   Axios.get(
     `https://coordinator-storytelling-api.herokuapp.com/api/stories/${id}`
   )
     .then(res => {
       dispatch({ type: GET_STORY_SUCCESS, payload: res.data });
+    })
+    .then(() => {
+      if (cb) cb();
     })
     .catch(err => console.log(err));
 };

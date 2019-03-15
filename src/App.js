@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
+  deleteStory,
   getStories,
   getUserStories,
   getStory,
@@ -74,6 +75,8 @@ class App extends Component {
                 {...props}
                 userstories={this.props.userstories}
                 getUserStories={this.props.getUserStories}
+                getStory={this.props.getStory}
+                deleteStory={this.props.deleteStory}
               />
             )}
           />
@@ -86,8 +89,8 @@ class App extends Component {
           />
           <Route
             exact
-            path="/coordinator/:id/edit-story"
-            component={EditStoryView}
+            path="/coordinator/edit-story"
+            render={props => <EditStoryView story={this.props.story} />}
           />
           <Route
             path="/:id"
@@ -122,6 +125,7 @@ export default withRouter(
   connect(
     mapStateToProps,
     {
+      deleteStory,
       getStories,
       getStory,
       getUserStories,

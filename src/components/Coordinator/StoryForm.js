@@ -6,21 +6,30 @@ import { ViewButton } from '../Card/Card';
 class StoryForm extends Component {
   state = { title: '', story: '' };
 
+  componentDidMount() {
+    if (this.props.story) {
+      this.setState({
+        title: this.props.story.story_title,
+        story: this.props.story.story_description
+      });
+    }
+  }
+
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleAdd(e) {
     e.preventDefault();
     const jwts = localStorage.getItem('token');
     let dataPack = {
-        story_title: this.state.title,
-        story_description: this.state.story,
-        jwt: jwts
-    }
+      story_title: this.state.title,
+      story_description: this.state.story,
+      jwt: jwts
+    };
     this.props.addStory(dataPack, jwts);
     this.setState({
       title: '',
       story: ''
-    })
+    });
   }
 
   render() {

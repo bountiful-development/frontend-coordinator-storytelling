@@ -13,13 +13,23 @@ class CoordinatorHomeView extends Component {
       this.props.getUserStories(curid);
     }
   }
+
+  getStoryThenRedirect = id => {
+    const redirectTo = () => this.props.history.push(`/coordinator/edit-story`);
+    this.props.getStory(id, redirectTo);
+  };
+
   render() {
     return (
       <StyledCoordinatorHomeView>
         <Navigation />
         <Container>
           <PageHeading>My Stories</PageHeading>
-          <CoordinatorCards userstories={this.props.userstories} />
+          <CoordinatorCards
+            userstories={this.props.userstories}
+            deleteStory={this.props.deleteStory}
+            getStory={this.getStoryThenRedirect}
+          />
         </Container>
       </StyledCoordinatorHomeView>
     );

@@ -4,7 +4,11 @@ import Navigation from '../components/Navigation/Navigation';
 import StoryForm from '../components/Coordinator/StoryForm';
 
 class EditStoryView extends Component {
-  state = {};
+  editStoryWithRedirect = (id, datapack) => {
+    this.props.editStory(id, datapack);
+    this.props.history.push('/coordinator');
+  };
+
   render() {
     return (
       <StyledEditStoryView>
@@ -13,7 +17,7 @@ class EditStoryView extends Component {
           <PageHeading>Edit Story</PageHeading>
           <StoryForm
             story={this.props.story}
-            editStory={this.props.editStory}
+            editStory={this.editStoryWithRedirect}
           />
         </Container>
       </StyledEditStoryView>

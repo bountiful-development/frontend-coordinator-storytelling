@@ -4,14 +4,18 @@ import Navigation from '../components/Navigation/Navigation';
 import StoryForm from '../components/Coordinator/StoryForm';
 
 class CreateStoryView extends Component {
-  state = {};
+  addStoryWithRedirect = datapack => {
+    this.props.addStory(datapack);
+    this.props.history.push('/coordinator');
+  };
+
   render() {
     return (
       <StyledCreateStoryView>
         <Navigation />
         <Container>
           <PageHeading>Add Story</PageHeading>
-          <StoryForm addStory={this.props.addStory} />
+          <StoryForm addStory={this.addStoryWithRedirect} />
         </Container>
       </StyledCreateStoryView>
     );

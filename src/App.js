@@ -93,6 +93,7 @@ class App extends Component {
             path="/coordinator/edit-story"
             render={props => (
               <EditStoryView
+                {...props}
                 story={this.props.story}
                 editStory={this.props.editStory}
               />

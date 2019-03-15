@@ -23,7 +23,7 @@ class App extends Component {
     if (prevProps.token !== this.props.token) {
       localStorage.setItem('token', this.props.token);
       localStorage.setItem('curid', this.props.curid);
-      localStorage.setItem('curemail', this.props.curemail)
+      localStorage.setItem('curemail', this.props.curemail);
       this.props.history.push('/');
     }
   }

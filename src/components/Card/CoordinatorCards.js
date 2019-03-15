@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import CoordinatorCard from './CoordinatorCard';
 import AddStoryCard from './AddStoryCard';
 import { CardContainer } from './Card';
@@ -10,9 +9,7 @@ class CoordinatorCards extends Component {
   render() {
     return (
       <CardContainer>
-        {/* <Link to="/coordinator/create-story"> */}
         <AddStoryCard />
-        {/* </Link> */}
         {this.props.userstories.map(story => (
           <CoordinatorCard
             title={story.story_title}

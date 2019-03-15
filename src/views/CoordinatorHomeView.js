@@ -6,10 +6,11 @@ import Navigation from '../components/Navigation/Navigation';
 class CoordinatorHomeView extends Component {
   state = {};
 
-  componentDidMount(){
-    if(this.props.userstories.length <= 0){
-    let curid = localStorage.getItem('curid');
-    this.props.getUserStories(curid);
+  componentDidMount() {
+    if (this.props.userstories.length <= 0) {
+      let curid = localStorage.getItem('curid');
+      console.log(curid);
+      this.props.getUserStories(curid);
     }
   }
   render() {

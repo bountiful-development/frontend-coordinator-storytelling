@@ -68,9 +68,10 @@ export const getStories = () => dispatch => {
 export const getUserStories = curid => dispatch => {
   dispatch({ type: GET_USER_STORIES });
   Axios.get(
-    'https://coordinator-storytelling-api.herokuapp.com/api/stories/users/curid'
+    `https://coordinator-storytelling-api.herokuapp.com/api/stories/users/${curid}`
   )
     .then(res => {
+      console.log(res.data);
       dispatch({ type: USER_STORIES_GOT, payload: res.data });
     })
     .catch(err => console.log(err));

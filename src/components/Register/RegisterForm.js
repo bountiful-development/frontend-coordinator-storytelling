@@ -37,13 +37,10 @@ class RegisterForm extends Component {
     role: 'coordinator'
   };
 
-  componentDidUpdate(){
+  componentDidUpdate() {
     const token = localStorage.getItem('token');
-    if(token){
-      {console.log('RUN')}
-      return (
-        this.props.history.push('/')
-      )
+    if (token) {
+      return this.props.history.push('/login');
     }
   }
 
@@ -53,13 +50,13 @@ class RegisterForm extends Component {
     e.preventDefault();
     let newUser = {
       username: this.state.name,
-      country: this.state.country,
+      country: this.state.country.toLowerCase(),
       title: this.state.title,
       email: this.state.email,
       password: this.state.password,
       role: this.state.role
-    }
-    if(newUser.country === ''){
+    };
+    if (newUser.country === '') {
       newUser.country = 'Bolivia';
     }
     console.log(newUser);
@@ -76,7 +73,7 @@ class RegisterForm extends Component {
       email: '',
       password: '',
       role: 'coordinator'
-    })
+    });
   }
 
   render() {
@@ -149,9 +146,7 @@ class RegisterForm extends Component {
           />
         </div>
         <SubmitButton type="submit">Sign Up</SubmitButton>
-        <div>
-          {(this.props.isRegistering ? <p>Registering...</p> : <p></p>)}
-        </div>
+        <div>{this.props.isRegistering ? <p>Registering...</p> : <p />}</div>
         <RedirectA>
           <span>Already signed up?</span>
           <Link to="/login">Login</Link>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../img/logo.svg';
+import Icon from '../../utilities/Icon';
 
 const NavCheck = () => {
   const [toggle, setToggle] = useState(false);
@@ -11,7 +12,7 @@ const NavCheck = () => {
       <LoginNav>
         <Link to="/coordinator">{curemail}</Link>
         <div onClick={() => setToggle(!toggle)} className="toggle">
-          V
+          <Icon name="down-arrow" />
         </div>
 
         {toggle && (
@@ -86,17 +87,27 @@ const Container = styled.div`
 const LoginNav = styled.nav`
   position: relative;
   display: flex;
+  /* align-items: flex-start; */
 
   .toggle {
     margin: 0 3rem;
     cursor: pointer;
+    svg {
+      height: 20px;
+      width: 20px;
+      fill: rgba(57, 57, 57, 1);
+      transition: all 0.2s;
+      &:hover {
+        fill: #ed9728;
+      }
+    }
   }
   .nav {
     background: rgba(57, 57, 57, 0.8);
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 52px;
+    top: 54px;
     right: 0;
     z-index: 1000;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);

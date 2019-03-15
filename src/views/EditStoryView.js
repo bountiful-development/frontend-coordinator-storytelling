@@ -4,6 +4,13 @@ import Navigation from '../components/Navigation/Navigation';
 import StoryForm from '../components/Coordinator/StoryForm';
 
 class EditStoryView extends Component {
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return this.props.history.push('/login');
+    }
+  }
+
   editStoryWithRedirect = (id, datapack) => {
     this.props.editStory(id, datapack);
     this.props.history.push('/coordinator');

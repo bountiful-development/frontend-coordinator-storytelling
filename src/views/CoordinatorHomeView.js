@@ -7,6 +7,11 @@ class CoordinatorHomeView extends Component {
   state = {};
 
   componentDidMount() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return this.props.history.push('/login');
+    }
+
     if (this.props.userstories.length <= 0) {
       let curid = localStorage.getItem('curid');
       console.log(curid);

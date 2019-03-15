@@ -15,6 +15,7 @@ class DonorCards extends Component {
             country={story.story_country.toLowerCase()}
             redirectToStory={this.props.redirectToStory}
             id={story.id}
+            key={story.id}
           />
         ))}
       </CardContainer>

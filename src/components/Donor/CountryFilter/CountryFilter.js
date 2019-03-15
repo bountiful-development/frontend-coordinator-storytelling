@@ -51,10 +51,10 @@ class CountryFilter extends Component {
       <StyledCountryFilter>
         <Container scroll={scrollVal}>
           <div className="left-arrow" onClick={this.scrollLeft}>
-            {'<'}
+            <Icon name="left-arrow" />
           </div>
           <div className="right-arrow" onClick={this.scrollRight}>
-            {'>'}
+            <Icon name="right-arrow" />
           </div>
           <div className="scroll-container">
             {countries.map(country => {
@@ -104,6 +104,11 @@ const Container = styled.div`
     font-size: 3rem;
     position: absolute;
     cursor: pointer;
+    svg {
+      height: 30px;
+      width: 30px;
+      fill: #fff;
+    }
   }
   .left-arrow {
     left: 50px;

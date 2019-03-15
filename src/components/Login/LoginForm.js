@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-import { withRouter, Link, Redirect } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../img/logo.svg';
 import { Form, RedirectA, SubmitButton } from '../Form/Form';
 
-class RegisterForm extends Component {
+class LoginForm extends Component {
   state = {
     email: '',
     password: ''
   };
 
-  componentDidUpdate(){
+  componentDidUpdate() {
     const token = localStorage.getItem('token');
-    if(token){
-      {console.log('RUN')}
-      return (
-        this.props.history.push('/')
-      )
+    if (token) {
+      return this.props.history.push('/coordinator');
     }
   }
 
@@ -27,13 +24,13 @@ class RegisterForm extends Component {
     let user = {
       email: this.state.email,
       password: this.state.password
-    }
+    };
     console.log(user);
     this.props.loginUser(user);
     this.setState({
       email: '',
       password: ''
-    })
+    });
   }
 
   render() {
@@ -69,9 +66,7 @@ class RegisterForm extends Component {
           />
         </div>
         <SubmitButton type="submit">Log In</SubmitButton>
-        <div>
-          {(this.props.isLogginIn ? <p>Logging in...</p> : <p></p>)}
-        </div>
+        <div>{this.props.isLogginIn ? <p>Logging in...</p> : <p />}</div>
         <RedirectA>
           <span>Not registered?</span>
           <Link to="/register">Sign Up</Link>
@@ -106,4 +101,4 @@ const LoginHeading = styled.h1`
   }
 `;
 
-export default withRouter(RegisterForm);
+export default withRouter(LoginForm);

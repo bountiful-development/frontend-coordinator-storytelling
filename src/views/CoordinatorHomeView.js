@@ -32,7 +32,7 @@ class CoordinatorHomeView extends Component {
   render() {
     return (
       <StyledCoordinatorHomeView>
-        <Navigation />
+        <Navigation {...this.props} />
         <Container>
           <PageHeading>My Stories</PageHeading>
           <CoordinatorCards

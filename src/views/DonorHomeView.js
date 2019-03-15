@@ -22,7 +22,7 @@ class DonorHomeView extends Component {
   render() {
     return (
       <StyledDonorHomeView>
-        <Navigation />
+        <Navigation {...this.props} />
         <CountryFilter filterCountries={this.filterCountries} />
         <Container>
           <PageHeading>Our Stories</PageHeading>

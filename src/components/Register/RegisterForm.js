@@ -37,12 +37,12 @@ class RegisterForm extends Component {
     role: 'coordinator'
   };
 
-  componentDidUpdate() {
-    const token = localStorage.getItem('token');
-    if (token) {
-      return this.props.history.push('/login');
-    }
-  }
+  // componentDidUpdate() {
+  //   const token = localStorage.getItem('token');
+  //   if (token) {
+  //     return this.props.history.push('/login');
+  //   }
+  // }
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
@@ -59,13 +59,7 @@ class RegisterForm extends Component {
     if (newUser.country === '') {
       newUser.country = 'Bolivia';
     }
-    console.log(newUser);
     this.props.registerUser(newUser);
-    // let user = {
-    //   email: this.state.email,
-    //   password: this.state.password
-    // }
-    // this.props.loginUser(user);
     this.setState({
       name: '',
       country: '',
@@ -74,6 +68,7 @@ class RegisterForm extends Component {
       password: '',
       role: 'coordinator'
     });
+    this.props.history.push('/login');
   }
 
   render() {

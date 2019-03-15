@@ -41,8 +41,8 @@ export const storyReducer = (state = initalState, action) => {
     case GET_STORIES_SUCCESS:
       return {
         ...state,
-        stories: [...state.stories, ...action.payload],
-        visibleStories: [...state.stories, ...action.payload],
+        stories: [...action.payload.reverse()],
+        visibleStories: [...action.payload.reverse()],
         isFetchingStories: false
       };
     case GET_STORIES_FAILURE:

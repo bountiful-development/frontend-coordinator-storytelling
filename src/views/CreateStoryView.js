@@ -19,7 +19,7 @@ class CreateStoryView extends Component {
   render() {
     return (
       <StyledCreateStoryView>
-        <Navigation />
+        <Navigation {...this.props} />
         <Container>
           <PageHeading>Add Story</PageHeading>
           <StoryForm addStory={this.addStoryWithRedirect} />

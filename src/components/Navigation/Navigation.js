@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../img/logo.svg';
 import Icon from '../../utilities/Icon';
 
-const NavCheck = () => {
+const NavCheck = props => {
   const [toggle, setToggle] = useState(false);
   if (localStorage.getItem('token')) {
     const curemail = localStorage.getItem('curemail');
@@ -17,15 +17,21 @@ const NavCheck = () => {
 
         {toggle && (
           <div className="nav">
-            <Link class="dropdown" to="/coordinator/create-story">
+            <Link className="dropdown" to="/coordinator/create-story">
               Create Story
             </Link>
-            <Link class="dropdown" to="/">
+            <Link className="dropdown" to="/">
               All Stories
             </Link>
-            <Link class="dropdown" to="/">
+            <button
+              className="dropdown"
+              onClick={() => {
+                localStorage.removeItem('token');
+                props.history.push('/login');
+              }}
+            >
               Logout
-            </Link>
+            </button>
           </div>
         )}
       </LoginNav>
@@ -39,7 +45,8 @@ const NavCheck = () => {
   }
 };
 
-const Navigation = () => {
+const Navigation = props => {
+  console.log(props);
   return (
     <AppHeader>
       <Container>
@@ -49,7 +56,7 @@ const Navigation = () => {
             Coordinator <span>Storytelling</span>
           </Link>
         </AppHeading>
-        {NavCheck()}
+        {NavCheck(props)}
       </Container>
     </AppHeader>
   );
@@ -117,6 +124,16 @@ const LoginNav = styled.nav`
       padding: 2rem;
       width: 100%;
       color: #fff;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: inherit;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      &:hover {
+        color: #ed9728;
+      }
       &:not(:last-child) {
         border-bottom: 1px solid rgba(57, 57, 57, 1);
       }
@@ -149,4 +166,4 @@ const AppHeading = styled.h1`
   }
 `;
 
-export default Navigation;
+export default withRouter(Navigation);

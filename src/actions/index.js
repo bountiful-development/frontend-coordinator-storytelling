@@ -120,7 +120,10 @@ export const editStory = (id, data) => dispatch => {
   dispatch({ type: EDIT_STORY });
   Axios.put(
     `https://coordinator-storytelling-api.herokuapp.com/api/stories/${id}`,
-    data,
+    {
+      story_title: data.story_title,
+      story_description: data.story_description
+    },
     {
       headers: {
         'Content-Type': 'application/json',
@@ -131,7 +134,12 @@ export const editStory = (id, data) => dispatch => {
     .then(res => {
       dispatch({ type: EDIT_STORY_SUCCESS, payload: res.data });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      dispatch({
+        type: EDIT_STORY_FAILURE,
+        payload: err
+      });
+    });
 };
 
 export const deleteStory = (id, token) => dispatch => {

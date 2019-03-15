@@ -12,12 +12,18 @@ class CoordinatorHomeView extends Component {
       return this.props.history.push('/login');
     }
 
-    if (this.props.userstories.length <= 0) {
-      let curid = localStorage.getItem('curid');
-      console.log(curid);
-      this.props.getUserStories(curid);
-    }
+    // if (this.props.userstories.length <= 0) {
+    let curid = localStorage.getItem('curid');
+    this.props.getUserStories(curid);
   }
+
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.userstories.length !== prevProps.userstories.length) {
+  //     console.log('updating');
+  //     let curid = localStorage.getItem('curid');
+  //     this.props.getUserStories(curid);
+  //   }
+  // }
 
   getStoryThenRedirect = id => {
     const redirectTo = () => this.props.history.push(`/coordinator/edit-story`);
@@ -26,7 +32,9 @@ class CoordinatorHomeView extends Component {
 
   deleteStoryWithToken = id => {
     const jwt = localStorage.getItem('token');
-    this.props.deleteStory(id, jwt);
+    let curid = localStorage.getItem('curid');
+    const updatePage = () => this.props.getUserStories(curid);
+    this.props.deleteStory(id, jwt, updatePage);
   };
 
   render() {

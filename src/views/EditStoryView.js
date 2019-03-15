@@ -12,8 +12,8 @@ class EditStoryView extends Component {
   }
 
   editStoryWithRedirect = (id, datapack) => {
-    this.props.editStory(id, datapack);
-    this.props.history.push('/coordinator');
+    const redirectTo = () => this.props.history.push('/coordinator');
+    this.props.editStory(id, datapack, redirectTo);
   };
 
   render() {

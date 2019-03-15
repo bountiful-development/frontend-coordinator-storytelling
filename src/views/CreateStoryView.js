@@ -12,8 +12,8 @@ class CreateStoryView extends Component {
   }
 
   addStoryWithRedirect = datapack => {
-    this.props.addStory(datapack);
-    this.props.history.push('/coordinator');
+    const redirectTo = () => this.props.history.push('/coordinator');
+    this.props.addStory(datapack, redirectTo);
   };
 
   render() {

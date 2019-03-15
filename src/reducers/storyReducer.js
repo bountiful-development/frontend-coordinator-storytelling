@@ -114,7 +114,8 @@ export const storyReducer = (state = initalState, action) => {
         filtered = [...state.stories];
       } else {
         filtered = state.stories.filter(
-          story => story.story_country === action.payload
+          story =>
+            story.story_country.toLowerCase() === action.payload.toLowerCase()
         );
       }
       return {

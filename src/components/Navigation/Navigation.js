@@ -39,14 +39,13 @@ const NavCheck = props => {
   } else {
     return (
       <LoginNav>
-        <Link to="/login">Login</Link> | <Link to="/register">Sign Up</Link>
+        <Link to="/login">Login </Link> | <Link to="/register"> Sign Up</Link>
       </LoginNav>
     );
   }
 };
 
 const Navigation = props => {
-  console.log(props);
   return (
     <AppHeader>
       <Container>
@@ -145,6 +144,7 @@ const LoginNav = styled.nav`
     text-transform: uppercase;
     transition: all 0.2s;
     text-decoration: none;
+    margin: 0 1rem;
     &:hover {
       color: #ed9728;
     }

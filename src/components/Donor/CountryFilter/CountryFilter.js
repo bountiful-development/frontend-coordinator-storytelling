@@ -28,7 +28,6 @@ const countries = [
 class CountryFilter extends Component {
   state = { scrollVal: 0 };
   handleStoryFilter = country => {
-    console.log(country);
     this.props.filterCountries(country);
   };
 

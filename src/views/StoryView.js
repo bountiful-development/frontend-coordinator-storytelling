@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Navigation from '../components/Navigation/Navigation';
 
 import Story from '../components/Donor/Story/Story';
-import StorySidebar from '../components/Donor/Story/StorySidebar';
+// import StorySidebar from '../components/Donor/Story/StorySidebar';
 
 class StoryView extends Component {
   componentDidMount() {
@@ -16,7 +16,7 @@ class StoryView extends Component {
         <Navigation />
         <Container>
           <Story story={this.props.story} />
-          <StorySidebar story={this.props.story} />
+          {/* <StorySidebar story={this.props.story} /> */}
         </Container>
       </StyledStoryView>
     );

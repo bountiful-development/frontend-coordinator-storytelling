@@ -32,7 +32,6 @@ export const ADD_STORY = 'ADD_STORY';
 export const STORY_ADD = 'STORY_ADD';
 
 export const registerUser = newUser => dispatch => {
-  console.log('Registering');
   dispatch({ type: REGISTER_USER });
   Axios.post(
     'https://coordinator-storytelling-api.herokuapp.com/api/register/',
@@ -71,7 +70,6 @@ export const getUserStories = curid => dispatch => {
     `https://coordinator-storytelling-api.herokuapp.com/api/stories/users/${curid}`
   )
     .then(res => {
-      console.log(res.data);
       dispatch({ type: USER_STORIES_GOT, payload: res.data });
     })
     .catch(err => console.log(err));

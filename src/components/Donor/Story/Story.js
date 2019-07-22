@@ -7,7 +7,7 @@ const Story = ({ story }) => {
   return (
     <div className="story">
       <PageHeading>{story.story_title}</PageHeading>
-      <CoordinatorName>By: Ryan Walker</CoordinatorName>
+      <CoordinatorName>By: {story.username}</CoordinatorName>
       <StoryContent>
         <Icon name={story.story_country} />
         <StoryText>{story.story_description}</StoryText>

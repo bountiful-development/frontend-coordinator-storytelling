@@ -11,7 +11,7 @@ class DonorCards extends Component {
           <DonorCard
             title={story.story_title}
             excerpt={story.story_description.substring(0, 100) + '...'}
-            author="doug"
+            author={story.username}
             country={story.story_country.toLowerCase()}
             redirectToStory={this.props.redirectToStory}
             id={story.id}
